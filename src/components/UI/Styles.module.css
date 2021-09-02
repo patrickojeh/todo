@@ -1,0 +1,32 @@
+.app {
+  margin: 0 auto;
+  max-width: 600px;
+}
+.app::before {
+  background: #fff;
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.app__logo {
+  font-family: "vampiro one";
+  font-size: 32px;
+  letter-spacing: -2px;
+  color: #2fd365;
+}
+.card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  padding: 8px;
+}
