@@ -1,6 +1,6 @@
 .app {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 650px;
 }
 .app::before {
   background: #fff;
@@ -17,16 +17,93 @@
   justify-content: space-between;
   padding-top: 24px;
   padding-bottom: 24px;
+  z-index: 1;
+  position: relative;
 }
 .app__logo {
   font-family: "vampiro one";
   font-size: 32px;
   letter-spacing: -2px;
-  color: #2fd365;
+  color: #d32f2f; /*#2fd365*/
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 .card {
   background: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-  padding: 8px;
+  padding: 16px;
+  animation: slideIn 0.8s cubic-bezier(1, 0, 0, 1);
+  margin-bottom: 16px;
+}
+.new-task {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 8px;
+}
+.new-task__button:first-child {
+  background: #e8e3e3;
+  border-color: transparent;
+  color: #232020;
+}
+.new-task__button {
+  color: #fff;
+  font-weight: 600;
+  background: #000;
+  border: 1px solid;
+  margin-left: 8px;
+  padding: 0 20px 1px;
+  height: 100%;
+  border-radius: 24px;
+}
+.new-task__footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+.new-task__text-input {
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.new-task__text-input:first-child {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.new-task__text-input:focus {
+  outline: none;
+}
+.new-task__text-input::placeholder,
+.new-task__date-input::placeholder {
+  color: #aaa;
+}
+.new-task__date-input {
+  background: transparent;
+  color: #aaa;
+  border: none;
+  padding: 7px 0 8px;
+  border-radius: 20px;
+}
+.new-task__date-input::-webkit-inner-spin-button,
+.new-task__date-input::-webkit-calendar-picker-indicator {
+  /* display: none; */
+  /* -webkit-appearance: none; */
+  opacity: 0;
+}
+.todo-item {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  grid-column-gap: 8px;
+}
+.todo-item div:nth-child(2) {
+  width: -webkit-fill-available;
 }
