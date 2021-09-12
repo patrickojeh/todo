@@ -3,11 +3,21 @@ import {useState} from 'react';
 
 function NewTask(props) {
 
+  function currentDate() {
+    const DATE = new Date();
+    let dd, mm, yyyy;
+    dd = DATE.getDate();
+    mm = DATE.getMonth();
+    yyyy = DATE.getFullYear();
+    return `${yyyy}-${String(mm).padStart(2,0)}-${dd}`;
+  }
+
   let [formData, setFormData] = useState({
     title: '',
     description: '',
-    date: '',
-    id: Math.floor(Math.random() * 100)
+    date: currentDate(),
+    id: Math.floor(Math.random() * 100),
+    completed: false
   })
 
   function cancelHandler() {
@@ -20,7 +30,7 @@ function NewTask(props) {
     setFormData({
       title: '',
       description: '',
-      date: '',
+      date: currentDate(),
       id: Math.floor(Math.random() * 100),
       done: false
     })
@@ -64,11 +74,11 @@ function NewTask(props) {
         <hr />
         <div className={Styles['new-task__footer']}>
           <div>
-            <input value={formData.date} onChange={dateHandler} className={Styles['new-task__date-input']} min="2021-05-24" type="date" placeholder="Description" />
+            <input value={formData.date} onChange={dateHandler} className={Styles['new-task__date-input']} min="2021-05-24" type="date" />
           </div>
           <div>
             <button onClick={cancelHandler} className={Styles['new-task__button']}>Cancel</button>
-            <button onClick={submitHandler} className={Styles['new-task__button']}>Add</button>
+            <button onClick={submitHandler} className={Styles['new-task__button']}>Done</button>
           </div>
         </div>
       </div>

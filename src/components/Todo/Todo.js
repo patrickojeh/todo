@@ -2,6 +2,7 @@ import Styles from '../UI/Styles.module.css';
 import Button from '../UI/Button';
 import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
+import plusIcon from '../../icon--plus.svg';
 import {useState} from 'react';
 
 function Todo(props) {
@@ -29,27 +30,30 @@ function Todo(props) {
     })
   }
 
-  function checkboxIdHandler(data) {
-    // next: filter todoData against the checkbox id passed and set the task status to uncompleted. 
-    // then alter displayed data accordingly
-    let d = todoData.filter(x => {
-      return x.id !== parseInt(data)
+  function checkboxIdHandler(checkboxId) {
+    let newTodoData = todoData.filter(checkedTodoId => {
+      if (checkedTodoId.id === parseInt(checkboxId)) {
+        checkedTodoId.completed = !checkedTodoId.completed;
+      }
+      return false;
     })
 
     setTodoData((prevData) => {
       return [
-        ...d
+        ...prevData
       ]
     })
 
-    console.log(todoData, data)
+    console.log(newTodoData) 
   }
 
   return (
     <div>
       <header className={Styles.app__header}>
         <span className={Styles.app__logo}>Todo</span>
-        <Button onClick={enableNewTaskHandler}>New todo +</Button>
+        <Button onClick={enableNewTaskHandler}>
+          <img src={plusIcon} alt="Plus icon" />
+        </Button>
       </header>
       <div>
         {enableNewTask ? <NewTodo onAddTask={addTaskHandler} onCancel={disableNewTaskHandler} /> : ''}
@@ -57,7 +61,15 @@ function Todo(props) {
       <div>
         {
           todoData.map(todo => {
-            return <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} />
+            return (!todo.completed) && 
+            <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
+          })
+        }
+        {/* <p>Completed tasks</p> */}
+        {
+          todoData.map(todo => {
+            return (todo.completed) && 
+            <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
           })
         }
       </div>

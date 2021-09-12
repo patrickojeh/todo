@@ -1,9 +1,11 @@
 .app {
   margin: 0 auto;
   max-width: 650px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .app::before {
-  background: #fff;
+  background: #eaeaef;
   content: "";
   height: 100vh;
   left: 0;
@@ -24,7 +26,7 @@
   font-family: "vampiro one";
   font-size: 32px;
   letter-spacing: -2px;
-  color: #d32f2f; /*#2fd365*/
+  color: #8656ef; /*#2fd365*/
 }
 @keyframes slideIn {
   0% {
@@ -36,13 +38,23 @@
     transform: translateY(0px);
   }
 }
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 .card {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-  padding: 16px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 5%);
+  padding: 20px 16px 16px;
   animation: slideIn 0.8s cubic-bezier(1, 0, 0, 1);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .new-task {
   display: grid;
@@ -50,18 +62,18 @@
   grid-column-gap: 8px;
 }
 .new-task__button:first-child {
-  background: #e8e3e3;
+  background: #ece8f5;
   border-color: transparent;
-  color: #232020;
+  color: #8656ef;
 }
 .new-task__button {
   color: #fff;
   font-weight: 600;
-  background: #000;
+  background: #8656ef;
+  height: 38px;
   border: 1px solid;
   margin-left: 8px;
-  padding: 0 20px 1px;
-  height: 100%;
+  padding: 3px 20px 1px;
   border-radius: 24px;
 }
 .new-task__footer {
@@ -75,7 +87,7 @@
   width: 100%;
 }
 .new-task__text-input:first-child {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 16px;
 }
 .new-task__text-input:focus {
@@ -87,7 +99,6 @@
 }
 .new-task__date-input {
   background: transparent;
-  color: #aaa;
   border: none;
   padding: 7px 0 8px;
   border-radius: 20px;
@@ -99,11 +110,42 @@
   opacity: 0;
 }
 .todo-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 5%);
+  padding: 16px 16px 16px;
   justify-content: flex-start;
   display: flex;
   align-items: center;
   grid-column-gap: 8px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: currentColor;
+  align-items: flex-start;
+}
+.todo-item p {
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+.todo-item button {
+  background: transparent;
+  border: none;
+}
+.todo-item button img {
+  position: relative;
+  top: 3px;
 }
 .todo-item div:nth-child(2) {
   width: -webkit-fill-available;
+}
+.collapsed {
+  display: none;
+  padding-top: 8px;
+  animation: slideInUp 0.4s cubic-bezier(0.5, 0, 0, 0.5);
+}
+.collapsed div:first-child small {
+  line-height: 24px;
+}
+.todo-item:focus > div .collapsed {
+  display: block !important;
 }

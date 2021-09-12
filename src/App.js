@@ -8,7 +8,7 @@ function App() {
     title: "Yo",
     description: "Sample description",
     date: "24-05-1990",
-    done: false
+    completed: false
   }]
 
   return (

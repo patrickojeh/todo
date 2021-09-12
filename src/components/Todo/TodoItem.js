@@ -1,8 +1,7 @@
 import Styles from '../UI/Styles.module.css';
-import {useState} from 'react';
+import chevronIcon from '../../icon--chevron-down.svg';
 
 function TodoItem(props) {
-  let [x, setX] = useState(!props.done);
   function checkboxHandler(e) {
     let checkboxId = e.target.id;
     props.onCheckboxId(checkboxId);
@@ -10,13 +9,13 @@ function TodoItem(props) {
 
   return (
     <div>
-      <div className={Styles['todo-item']}>
+      <a href="#" className={Styles['todo-item']}>
         <div>
-          <input type="checkbox" id={props.id} onChange={checkboxHandler} />
+          <input type="checkbox" id={props.id} onChange={checkboxHandler} checked={props.completed} />
         </div>
         <div>
           <p>{props.title}</p>
-          <div>
+          <div className={Styles.collapsed}>
             <div>
               <span></span>
               <small>{props.description}</small>
@@ -27,9 +26,12 @@ function TodoItem(props) {
             </div>
           </div>
         </div>
-        <div>...</div>
-      </div>
-      <hr />
+        <div>
+          <button type="button">
+            <img alt="chevron icon pointing downwards" src={chevronIcon} />
+          </button>
+        </div>
+      </a>
     </div>
   )
 }
