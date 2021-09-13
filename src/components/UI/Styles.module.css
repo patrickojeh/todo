@@ -125,6 +125,7 @@
   color: currentColor;
   align-items: flex-start;
   -webkit-tap-highlight-color: transparent;
+  animation: slideIn 0.8s cubic-bezier(1, 0, 0, 1);
 }
 .todo-item p {
   margin-top: 2px;
@@ -146,14 +147,14 @@
   padding-top: 8px;
   animation: slideInUp 0.4s cubic-bezier(0.5, 0, 0, 0.5);
 }
+.expand {
+  display: block !important;
+}
 .collapsed div:first-child small {
   line-height: 30px;
 }
 .collapsed div small {
   font-size: 14px;
-}
-.todo-item:focus > div .collapsed {
-  display: block !important;
 }
 
 @media (max-width: 450px) {
