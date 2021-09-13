@@ -29,7 +29,7 @@ function TodoItem(props) {
               <span>
                 <img alt="details icon" src={detailsIcon} height="9" />
               </span>
-              <small>{props.description}</small>
+              <small>{props.description.length > 0 ? props.description : '-'}</small>
             </div>
             <div>
               <span>
