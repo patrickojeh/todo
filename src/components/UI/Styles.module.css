@@ -158,7 +158,4 @@
 }
 
 @media (max-width: 450px) {
-  .todo-item:hover > div .collapsed {
-    display: block !important;
-  }
 }
