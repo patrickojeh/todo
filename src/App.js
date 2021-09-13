@@ -5,9 +5,9 @@ import Todo from './components/Todo/Todo';
 function App() {
   let todosObj = [{
     id: 1,
-    title: "Yo",
-    description: "Sample description",
-    date: "24-05-1990",
+    title: "Hey 👋",
+    description: "I'll get rid of this task soon.",
+    date: "24-05-2021",
     completed: false
   }]
 
