@@ -48,6 +48,14 @@
     transform: translateY(0px);
   }
 }
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: translateY(1);
+  }
+}
 .card {
   background: #fff;
   border-radius: 8px;
@@ -76,6 +84,9 @@
   padding: 3px 20px 1px;
   border-radius: 24px;
   font-size: 13px;
+}
+.new-task__button:active {
+  animation: subtlePulse 0.3s cubic-bezier(0.5, 0, 0, 0.05);
 }
 .new-task__footer {
   display: flex;

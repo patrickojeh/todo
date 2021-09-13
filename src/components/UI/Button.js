@@ -16,8 +16,19 @@ const Button = Styled.button`
   &:focus {
     outline: none;
   }
+  &:active {
+    animation: subtlePulse 0.4s cubic-bezier(0.5, 0, 0, 0.05);
+  }
   img {
     height: 10px;
+  }
+  @keyframes subtlePulse {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: translateY(1);
+    }
   }
 `;
 
