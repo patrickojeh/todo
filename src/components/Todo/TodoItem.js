@@ -1,5 +1,7 @@
 import Styles from '../UI/Styles.module.css';
 import chevronIcon from '../../icon--chevron-down.svg';
+import detailsIcon from '../../icon--details.svg';
+import calendarIcon from '../../icon--calendar.svg';
 import {useState} from 'react';
 
 function TodoItem(props) {
@@ -24,11 +26,15 @@ function TodoItem(props) {
           <p>{props.title}</p>
           <div className={`${Styles.collapsed} ${isCollapsed && Styles.expand}`}>
             <div>
-              <span></span>
+              <span>
+                <img alt="details icon" src={detailsIcon} height="9" />
+              </span>
               <small>{props.description}</small>
             </div>
             <div>
-              <span></span>
+              <span>
+                <img alt="details icon" src={calendarIcon} height="10" />
+              </span>
               <small>{props.date}</small>
             </div>
           </div>

@@ -149,6 +149,9 @@
   padding-top: 8px;
   animation: slideInUp 0.4s cubic-bezier(0.5, 0, 0, 0.5);
 }
+.collapsed img {
+  margin-right: 8px;
+}
 .expand {
   display: block !important;
 }
