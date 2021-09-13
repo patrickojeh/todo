@@ -31,7 +31,7 @@ function NewTask(props) {
       title: '',
       description: '',
       date: currentDate(),
-      id: Math.floor(Math.random() * 100),
+      id: Math.floor(Math.random() * 1000),
       done: false
     })
   }
