@@ -16,7 +16,7 @@ function TodoItem(props) {
 
   return (
     <div>
-      <a href="#" className={`${Styles['todo-item']}`} onClick={toggleCollapseHandler}>
+      <a href="/#" className={`${Styles['todo-item']}`} onClick={toggleCollapseHandler}>
         <div>
           <input type="checkbox" id={props.id} onChange={checkboxHandler} checked={props.completed} />
         </div>
