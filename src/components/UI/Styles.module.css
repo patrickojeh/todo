@@ -105,6 +105,22 @@
   font-size: 14px;
   padding: 7px 0 8px;
   border-radius: 20px;
+  position: relative;
+  width: 140px;
+}
+.new-task__date-input:focus {
+  outline: none;
+}
+.new-task__date-input::before {
+  content: "";
+  background: url("../../icon--calendar.svg") no-repeat transparent;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  right: 5px;
+  margin-top: -2px;
+  height: 11px;
+  width: 15px;
 }
 .new-task__date-input::-webkit-inner-spin-button,
 .new-task__date-input::-webkit-calendar-picker-indicator {
