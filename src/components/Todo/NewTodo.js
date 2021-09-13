@@ -26,21 +26,24 @@ function NewTask(props) {
 
   function submitHandler(e) {
     e.preventDefault();
-    props.onAddTask(formData);
-    setFormData({
-      title: '',
-      description: '',
-      date: currentDate(),
-      id: Math.floor(Math.random() * 1000),
-      done: false
-    })
+    if (formData.title.length > 0) {
+      props.onAddTask(formData);
+      setFormData({
+        title: '',
+        description: '',
+        date: currentDate(),
+        id: Math.floor(Math.random() * 1000),
+        done: false
+      })
+    }
+    return false;
   }
 
   function titleHandler(e) {
     setFormData((prevData) => {
       return {
         ...prevData,
-        title: e.target.value
+        title: e.target.value.trim()
       }
     })
   }
@@ -58,7 +61,7 @@ function NewTask(props) {
     setFormData((prevData) => {
       return {
         ...prevData,
-        description: e.target.value
+        description: e.target.value.trim()
       }
     })
   }
