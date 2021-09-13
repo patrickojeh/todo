@@ -199,4 +199,7 @@
   .new-task__button {
     font-size: 13.5px;
   }
+  .new-task__date-input::before {
+    content: unset;
+  }
 }
