@@ -84,6 +84,7 @@
 .new-task__text-input {
   border: none;
   margin-bottom: 10px;
+  font-size: 14px;
   width: 100%;
 }
 .new-task__text-input:first-child {
@@ -100,6 +101,7 @@
 .new-task__date-input {
   background: transparent;
   border: none;
+  font-size: 14px;
   padding: 7px 0 8px;
   border-radius: 20px;
 }
@@ -145,7 +147,10 @@
   animation: slideInUp 0.4s cubic-bezier(0.5, 0, 0, 0.5);
 }
 .collapsed div:first-child small {
-  line-height: 24px;
+  line-height: 30px;
+}
+.collapsed div small {
+  font-size: 14px;
 }
 .todo-item:focus > div .collapsed {
   display: block !important;
