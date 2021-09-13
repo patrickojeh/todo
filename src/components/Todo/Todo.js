@@ -43,8 +43,6 @@ function Todo(props) {
         ...prevData
       ]
     })
-
-    console.log(newTodoData) 
   }
 
   return (

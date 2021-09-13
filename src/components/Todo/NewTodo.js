@@ -66,8 +66,14 @@ function NewTask(props) {
     })
   }
 
+  function preventFormSubmission(e) {    
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  }
+
   return (
-    <form className={`${Styles.card} ${Styles['new-task']}`}>
+    <form className={`${Styles.card} ${Styles['new-task']}`} onKeyDown={preventFormSubmission}>
       <div>
         <input type="checkbox" disabled />
       </div>
