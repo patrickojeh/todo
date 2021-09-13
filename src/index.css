@@ -31,3 +31,22 @@ hr {
   border: none;
   border-top: 1px solid #eee;
 }
+
+@font-face {
+  font-family: "fakt pro";
+  font-weight: normal;
+  src: url(./FaktProNormal.otf);
+  font-display: block;
+}
+@font-face {
+  font-family: "fakt pro";
+  font-weight: 600;
+  src: url(./FaktProSemiBold.otf);
+  font-display: block;
+}
+@font-face {
+  font-family: "vampiro one";
+  font-weight: normal;
+  src: url(./VampiroOne-Regular.ttf);
+  font-display: block;
+}
