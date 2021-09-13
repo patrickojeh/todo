@@ -157,6 +157,12 @@
 .collapsed div small {
   font-size: 14px;
 }
+.footer__text {
+  color: rgba(0 0 0 / 30%);
+  font-size: 13px;
+  padding-top: 40px;
+  text-align: center;
+}
 
 @media (max-width: 450px) {
   .new-task__button {

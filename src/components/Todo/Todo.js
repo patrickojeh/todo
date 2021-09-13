@@ -73,6 +73,9 @@ function Todo(props) {
           })
         }
       </div>
+      <footer>
+        <p className={Styles.footer__text}>&copy; 2020 Patrick Ojeh.</p>
+      </footer>
     </div>
   )
 }
