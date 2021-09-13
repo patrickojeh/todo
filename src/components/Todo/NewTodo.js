@@ -26,7 +26,7 @@ function NewTask(props) {
 
   function submitHandler(e) {
     e.preventDefault();
-    if (formData.title.length > 0) {
+    if (formData.title.trim().length > 0) {
       props.onAddTask(formData);
       setFormData({
         title: '',
@@ -43,7 +43,7 @@ function NewTask(props) {
     setFormData((prevData) => {
       return {
         ...prevData,
-        title: e.target.value.trim()
+        title: e.target.value
       }
     })
   }
@@ -61,7 +61,7 @@ function NewTask(props) {
     setFormData((prevData) => {
       return {
         ...prevData,
-        description: e.target.value.trim()
+        description: e.target.value
       }
     })
   }
