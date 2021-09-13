@@ -130,6 +130,7 @@
 .todo-item button {
   background: transparent;
   border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .todo-item button img {
   position: relative;
@@ -148,4 +149,10 @@
 }
 .todo-item:focus > div .collapsed {
   display: block !important;
+}
+
+@media (max-width: 450px) {
+  .todo-item:hover > div .collapsed {
+    display: block !important;
+  }
 }
