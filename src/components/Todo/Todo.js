@@ -46,6 +46,10 @@ function Todo(props) {
     })
   }
 
+  let numberOfCompletedTasks = todoData.filter(task => {
+    return task.completed;
+  })
+
   return (
     <div>
       <header className={Styles.app__header}>
@@ -64,7 +68,9 @@ function Todo(props) {
             <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
           })
         }
-        {/* <p>Completed tasks</p> */}
+
+        {numberOfCompletedTasks.length > 0 && <p className={Styles.title}>Done</p>}   
+
         {
           todoData.map(todo => {
             return (todo.completed) && 
