@@ -204,4 +204,7 @@
   .new-task__date-input::before {
     content: unset;
   }
+  .todo-item p {
+    line-height: 22px;
+  }
 }
