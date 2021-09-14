@@ -2,7 +2,7 @@ import Styles from '../UI/Styles.module.css';
 import chevronIcon from '../../icon--chevron-down.svg';
 import detailsIcon from '../../icon--details.svg';
 import calendarIcon from '../../icon--calendar.svg';
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 function TodoItem(props) {
   let [isCollapsed, setIsCollapsed] = useState(false)
@@ -17,7 +17,7 @@ function TodoItem(props) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <a href="/#" className={`${Styles['todo-item']}`} onClick={toggleCollapseHandler}>
         <div>
           <input type="checkbox" id={props.id} onChange={checkboxHandler} checked={props.completed} />
@@ -45,7 +45,7 @@ function TodoItem(props) {
           </button>
         </div>
       </a>
-    </div>
+    </React.Fragment>
   )
 }
 

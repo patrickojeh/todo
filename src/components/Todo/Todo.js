@@ -4,6 +4,7 @@ import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
 import plusIcon from '../../icon--plus.svg';
 import {useState} from 'react';
+import Footer from './Footer';
 
 function Todo(props) {
   let [enableNewTask, setEnableNewTask] = useState(false);
@@ -71,9 +72,7 @@ function Todo(props) {
           })
         }
       </div>
-      <footer>
-        <p className={Styles.footer__text}>&copy; 2020 Patrick Ojeh.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
