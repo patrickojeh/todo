@@ -205,6 +205,6 @@
     content: unset;
   }
   .todo-item p {
-    line-height: 22px;
+    line-height: 24px;
   }
 }
