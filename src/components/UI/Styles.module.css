@@ -56,6 +56,11 @@
     transform: translateY(1);
   }
 }
+@keyframes rotating {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .card {
   background: #fff;
   border-radius: 8px;
@@ -227,4 +232,10 @@ p.title {
 .emptystate img {
   height: 100px;
   margin-top: 25px;
+}
+.xx {
+  animation: rotating 25s linear infinite;
+  transform-origin: center;
+  transform: rotate(0deg);
+  transform-box: fill-box;
 }
