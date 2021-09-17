@@ -261,6 +261,7 @@ input[type="checkbox"]:not(:disabled)::before {
   background: transparent;
   border: 1px solid rgba(0 0 0 / 12%);
   border-radius: 3px;
+  cursor: pointer;
   content: "";
   display: block;
   height: 14px;
@@ -274,6 +275,7 @@ input[type="checkbox"]:checked:not(:disabled)::before {
 input[type="checkbox"]:checked:not(:disabled)::after {
   content: "";
   background: url("../../icon--checkmark.svg") no-repeat transparent;
+  cursor: pointer;
   display: block;
   height: 6px;
   position: absolute;
