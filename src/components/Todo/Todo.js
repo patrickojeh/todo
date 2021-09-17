@@ -50,11 +50,13 @@ function Todo(props) {
     })
   }
 
-  let numberOfCompletedTasks = todoData.filter(task => {
+  let completedTasks = todoData.filter(task => {
     return task.completed;
   });
 
-  let totalNumberOfTasks = todoData.length;
+  let uncompletedTasks = todoData.filter(task => {
+      return !task.completed;
+  });
 
   return (
     <div>
@@ -69,7 +71,7 @@ function Todo(props) {
       </div>
       <div>
         {
-          totalNumberOfTasks === 0 && 
+          uncompletedTasks.length === 0 && 
           <div className={Styles.emptystate}>
             <img alt="Illustration of the sun and cloud" src={emptyStateImg} />  
             <p>Create new tasks and get productive!</p>
@@ -83,7 +85,7 @@ function Todo(props) {
           })
         }
 
-        {numberOfCompletedTasks.length > 0 && <p className={Styles.title}>Done</p>}
+        {completedTasks.length > 0 && <p className={Styles.title}>Done</p>}
 
         {
           todoData.map(todo => {
