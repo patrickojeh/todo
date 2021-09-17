@@ -72,7 +72,7 @@ function Todo(props) {
           totalNumberOfTasks === 0 && 
           <div className={Styles.emptystate}>
             <img alt="Illustration of the sun and cloud" src={emptyStateImg} />  
-            <p>Create new tasks and get productive.</p>
+            <p>Create new tasks and get productive!</p>
           </div>
         }
 
