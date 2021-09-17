@@ -208,17 +208,6 @@ p.title {
   font-size: 12px;
   z-index: 0;
 }
-.title::before {
-  content: "";
-  /* background: rgb(78 230 147 / 43%); */
-  border-radius: 6px;
-  height: 168%;
-  left: -10px;
-  position: absolute;
-  width: 100%;
-  top: -6px;
-  z-index: -1;
-}
 
 @media (max-width: 450px) {
   .new-task__button {

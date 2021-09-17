@@ -66,14 +66,14 @@ function NewTask(props) {
     })
   }
 
-  function preventFormSubmission(e) {    
+  function preventFormSubmit(e) {    
     if (e.keyCode === 13) {
       e.preventDefault();
     }
   }
 
   return (
-    <form className={`${Styles.card} ${Styles['new-task']}`} onKeyDown={preventFormSubmission}>
+    <form onSubmit={submitHandler} className={`${Styles.card} ${Styles['new-task']}`} onKeyDown={preventFormSubmit}>
       <div>
         <input type="checkbox" disabled />
       </div>
@@ -87,7 +87,7 @@ function NewTask(props) {
           </div>
           <div>
             <button onClick={cancelHandler} className={Styles['new-task__button']}>Cancel</button>
-            <button onClick={submitHandler} className={Styles['new-task__button']}>Done</button>
+            <button className={Styles['new-task__button']}>Done</button>
           </div>
         </div>
       </div>
