@@ -268,8 +268,8 @@ input[type="checkbox"]:not(:disabled)::before {
   width: 14px;
 }
 input[type="checkbox"]:checked:not(:disabled)::before {
-  background: #19093c;
-  border-color: #19093c;
+  background: #000;
+  border-color: #000;
 }
 input[type="checkbox"]:checked:not(:disabled)::after {
   content: "";
