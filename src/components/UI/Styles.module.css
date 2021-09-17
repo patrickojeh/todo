@@ -229,7 +229,7 @@ p.title {
 .emptystate {
   text-align: center;
 }
-.emptystate img {
+.emptystate svg {
   height: 100px;
   margin-top: 25px;
 }
