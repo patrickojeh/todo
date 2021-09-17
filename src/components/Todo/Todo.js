@@ -1,10 +1,14 @@
-import Styles from '../UI/Styles.module.css';
+import {useState} from 'react';
+
 import Button from '../UI/Button';
 import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
-import plusIcon from '../../icon--plus.svg';
-import {useState} from 'react';
 import Footer from './Footer';
+
+import Styles from '../UI/Styles.module.css';
+
+import plusIcon from '../../icon--plus.svg';
+import emptyStateImg from '../../illustration--sun_cloud.svg';
 
 function Todo(props) {
   let [enableNewTask, setEnableNewTask] = useState(false);
@@ -48,7 +52,9 @@ function Todo(props) {
 
   let numberOfCompletedTasks = todoData.filter(task => {
     return task.completed;
-  })
+  });
+
+  let totalNumberOfTasks = todoData.length;
 
   return (
     <div>
@@ -63,13 +69,21 @@ function Todo(props) {
       </div>
       <div>
         {
+          totalNumberOfTasks === 0 && 
+          <div className={Styles.emptystate}>
+            <img alt="Illustration of the sun and cloud" src={emptyStateImg} />  
+            <p>Create new tasks and get productive.</p>
+          </div>
+        }
+
+        {
           todoData.map(todo => {
             return (!todo.completed) && 
             <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
           })
         }
 
-        {numberOfCompletedTasks.length > 0 && <p className={Styles.title}>Done</p>}   
+        {numberOfCompletedTasks.length > 0 && <p className={Styles.title}>Done</p>}
 
         {
           todoData.map(todo => {

@@ -220,3 +220,10 @@ p.title {
     line-height: 24px;
   }
 }
+.emptystate {
+  text-align: center;
+}
+.emptystate img {
+  height: 100px;
+  margin-top: 35px;
+}
