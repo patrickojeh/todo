@@ -12,7 +12,7 @@ A simple ReactJS todo app 📝
 
 ### Learn more
 
-This was built in React.
+App was built in React.
 
 To run locally:
 
