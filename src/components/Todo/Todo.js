@@ -7,8 +7,8 @@ import Footer from './Footer';
 
 import Styles from '../UI/Styles.module.css';
 
-import plusIcon from '../../icon--plus.svg';
-import emptyStateImg from '../../illustration--sun_cloud.svg';
+import plusIcon from '../../svg/icon--plus.svg';
+import emptyStateImg from '../../svg/illustration--sun_cloud.svg';
 
 function Todo(props) {
   let [enableNewTask, setEnableNewTask] = useState(false);

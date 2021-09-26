@@ -1,7 +1,7 @@
 import Styles from '../UI/Styles.module.css';
-import chevronIcon from '../../icon--chevron-down.svg';
-import detailsIcon from '../../icon--details.svg';
-import calendarIcon from '../../icon--calendar.svg';
+import chevronIcon from '../../svg/icon--chevron-down.svg';
+import detailsIcon from '../../svg/icon--details.svg';
+import calendarIcon from '../../svg/icon--calendar.svg';
 import React, {useState} from 'react';
 
 function TodoItem(props) {

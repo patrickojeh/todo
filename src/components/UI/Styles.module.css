@@ -129,7 +129,7 @@
 }
 .new-task__date-input::before {
   content: "";
-  background: url("../../icon--calendar.svg") no-repeat transparent;
+  background: url("../../svg/icon--calendar.svg") no-repeat transparent;
   background-size: contain;
   display: block;
   position: absolute;
@@ -274,7 +274,7 @@ input[type="checkbox"]:checked:not(:disabled)::before {
 }
 input[type="checkbox"]:checked:not(:disabled)::after {
   content: "";
-  background: url("../../icon--checkmark.svg") no-repeat transparent;
+  background: url("../../svg/icon--checkmark.svg") no-repeat transparent;
   cursor: pointer;
   display: block;
   height: 6px;
