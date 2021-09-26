@@ -1,14 +1,11 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 
-import Button from '../UI/Button';
 import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
+import Header from './Header';
 import Footer from './Footer';
 
 import Styles from '../UI/Styles.module.css';
-
-import plusIcon from '../../svg/icon--plus.svg';
-import emptyStateImg from '../../svg/illustration--sun_cloud.svg';
 
 function Todo(props) {
   let [enableNewTask, setEnableNewTask] = useState(false);
@@ -59,13 +56,8 @@ function Todo(props) {
   });
 
   return (
-    <div>
-      <header className={Styles.app__header}>
-        <span className={Styles.app__logo}>Todo</span>
-        <Button onClick={enableNewTaskHandler}>
-          <img src={plusIcon} alt="Plus icon" />
-        </Button>
-      </header>
+    <React.Fragment>
+      <Header onEnableNewTask={enableNewTaskHandler}/>
       <div>
         {enableNewTask ? <NewTodo onAddTask={addTaskHandler} onCancel={disableNewTaskHandler} /> : ''}
       </div>
@@ -100,7 +92,7 @@ function Todo(props) {
         }
       </div>
       <Footer />
-    </div>
+    </React.Fragment>
   )
 }
 
