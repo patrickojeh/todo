@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
@@ -14,6 +14,9 @@ function Todo(props) {
 
   let [todoData, setTodoData] = useState(todoObj);
 
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todoData));
+  }, [todoData])
 
   function enableNewTaskHandler() {
     setEnableNewTask(true);
@@ -30,6 +33,8 @@ function Todo(props) {
         ...prevData        
       ]
     })
+
+    // set data to localstorage.
   }
 
   function checkboxIdHandler(checkboxId) {

@@ -5,13 +5,14 @@ import Todo from './components/Todo/Todo';
 function App() {
   // let todosObj = [{
   //   id: 1,
-  //   title: "Hey 👋",
-  //   description: "I'll get rid of this task soon.",
-  //   date: "24-05-2021",
+  //   title: "",
+  //   description: "",
+  //   date: "",
   //   completed: false
   // }]
 
-  let todosObj = []
+  const savedTodos = JSON.parse(localStorage.getItem('todos'));
+  let todosObj = savedTodos ? savedTodos : [];
 
   return (
     <div className={Styles.app}>
