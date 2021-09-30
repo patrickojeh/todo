@@ -130,6 +130,7 @@ ul {
 .new-task__date-input {
   background: transparent;
   border: none;
+  color: currentColor;
   font-size: 14px;
   padding: 7px 0 8px;
   border-radius: 20px;
