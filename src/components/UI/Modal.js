@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Styles from './Styles.module.css';
 
 function Modal(props) {
+  let titleInputRef = useRef();
+
   let [formData, setFormData] = useState({
     id: '',
     title: '',
@@ -10,13 +12,14 @@ function Modal(props) {
   });
 
   useEffect(() => {
+    titleInputRef.current.focus();
     setFormData({
       id: props.id,
       title: props.title || '',
       description: props.description || '',
       date: props.date || ''
     })
-  }, [props.id, props.title, props.description, props.date])
+  }, [props.id, props.title, props.description, props.date])  
 
   function titleHandler(e) {    
     setFormData((prevData) => {
@@ -57,7 +60,7 @@ function Modal(props) {
           <hr/>
           <br/>
           <form onSubmit={submitHandler}>
-            <input onChange={titleHandler} value={formData.title} className={Styles['new-task__text-input']} type="text" placeholder="Title" autoFocus />
+            <input ref={titleInputRef} onChange={titleHandler} value={formData.title} className={Styles['new-task__text-input']} type="text" placeholder="Title" autoFocus />
             <input onChange={descriptionHandler} value={formData.description} className={Styles['new-task__text-input']} type="text" placeholder="Description" />
             <div className={Styles['new-task__footer']}>
               <div>

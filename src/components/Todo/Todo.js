@@ -37,8 +37,6 @@ function Todo(props) {
         ...prevData        
       ]
     })
-
-    // set data to localstorage.
   }
 
   function checkboxIdHandler(checkboxId) {
