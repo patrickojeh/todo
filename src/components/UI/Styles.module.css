@@ -113,6 +113,7 @@ ul {
   border: none;
   margin-bottom: 10px;
   font-size: 14px;
+  padding-left: 0;
   width: 100%;
 }
 .new-task__text-input:first-child {
@@ -287,6 +288,7 @@ input[type="checkbox"]::before {
   width: 14px;
 }
 input[type="checkbox"] {
+  margin-right: 6px;
   visibility: hidden;
   position: relative;
 }
