@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
 
+import Modal from '../UI/Modal';
 import NewTodo from './NewTodo';
 import TodoItem from './TodoItem';
 import Header from './Header';
@@ -9,6 +11,8 @@ import Styles from '../UI/Styles.module.css';
 
 function Todo(props) {
   let [enableNewTask, setEnableNewTask] = useState(false);
+
+  let [enableModal, setEnableModal] = useState(false);
 
   let todoObj = props.data;
 
@@ -60,6 +64,43 @@ function Todo(props) {
       return !task.completed;
   });
 
+  let [modalData, setModalData] = useState({});
+  function editHandler(todoId) {
+    setEnableModal(true);
+    let [editData] = todoData.filter(todo => {
+      return todo.id === Number(todoId);
+    });
+    setModalData(editData);
+  }
+
+  function backdropHandler() {
+    setEnableModal(!enableModal);
+  }
+
+  function closeHandler() {
+    setEnableModal(!enableModal);
+  }
+
+  function submittedEditHandler(formData) {
+    let editedTodoId = todoData.findIndex(todo => {
+      return todo.id === formData.id;
+    })
+    let {formId, 
+        title: formTitle, 
+        description:formDescription, 
+        date: formDate
+    } = formData;
+    todoData[editedTodoId].title = formTitle;
+    todoData[editedTodoId].description = formDescription;
+    todoData[editedTodoId].date = formDate;
+    setTodoData((prevData) => {
+      return [
+        ...prevData
+      ]
+    })
+    closeHandler();
+  }
+
   return (
     <React.Fragment>
       <Header onEnableNewTask={enableNewTaskHandler}/>
@@ -83,7 +124,7 @@ function Todo(props) {
         {
           todoData.map(todo => {
             return (!todo.completed) && 
-            <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
+            <TodoItem onEdit={editHandler} onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
           })
         }
 
@@ -92,11 +133,25 @@ function Todo(props) {
         {
           todoData.map(todo => {
             return (todo.completed) && 
-            <TodoItem onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
+            <TodoItem onEdit={editHandler} onCheckboxId={checkboxIdHandler} id={todo.id} key={todo.id} title={todo.title} description={todo.description} date={todo.date} completed={todo.completed} />
           })
         }
       </div>
       <Footer />
+
+      {
+        ReactDOM.createPortal(
+          <Modal 
+            id={modalData.id} 
+            showModal={enableModal} 
+            title={modalData.title}
+            description={modalData.description}
+            date={modalData.date}
+            onClose={closeHandler}
+            onSubmit={submittedEditHandler}
+            onBackdrop={backdropHandler} />, 
+          document.querySelector('#modal'))
+      }
     </React.Fragment>
   )
 }
