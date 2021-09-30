@@ -252,18 +252,6 @@ p.title {
   padding: 7px 12px 5px;
   border-radius: 22px;
 }
-
-@media (max-width: 450px) {
-  .new-task__button {
-    font-size: 13.5px;
-  }
-  .new-task__date-input::before {
-    content: unset;
-  }
-  .todo-item p {
-    line-height: 24px;
-  }
-}
 .emptystate {
   text-align: center;
 }
@@ -368,4 +356,19 @@ input[type="checkbox"]:checked:not(:disabled)::after {
 h1 {
   font-size: 18px;
   margin: 0 0 12px;
+}
+
+@media (max-width: 450px) {
+  .new-task__button {
+    font-size: 13.5px;
+  }
+  .new-task__date-input::before {
+    content: unset;
+  }
+  .todo-item p {
+    line-height: 24px;
+  }
+  .modal-form {
+    padding: 16px;
+  }
 }
