@@ -78,7 +78,7 @@ function Todo(props) {
   }
 
   function closeHandler() {
-    setEnableModal(!enableModal);
+    setEnableModal(false);
   }
 
   function submittedEditHandler(formData) {
