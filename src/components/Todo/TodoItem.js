@@ -55,7 +55,7 @@ function TodoItem(props) {
           <button type="button" onClick={moreOptionHandler}>
             <img alt="ellipsis icon for more options" src={chevronIcon} />
           </button>
-          <div className={`${Styles.more} ${showMore && Styles['show-more']}`}>
+          <div className={`${Styles.more} ${showMore && Styles['show-more']}`} onClick={moreOptionHandler}>
             <ul>
               <li><button type="button" onClick={editBtnHandler}>Edit</button></li>
               <li><button type="button">Delete</button></li>
