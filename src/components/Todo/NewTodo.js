@@ -9,7 +9,7 @@ function NewTask(props) {
     dd = DATE.getDate();
     mm = DATE.getMonth();
     yyyy = DATE.getFullYear();
-    return `${yyyy}-${String(mm).padStart(2,0)}-${dd}`;
+    return `${yyyy}-${String(mm).padStart(2,0)}-${String(dd).padStart(2,0)}`;
   }
 
   let [formData, setFormData] = useState({
@@ -86,7 +86,7 @@ function NewTask(props) {
             <input value={formData.date} onChange={dateHandler} className={Styles['new-task__date-input']} min="2021-05-24" type="date" />
           </div>
           <div>
-            <button onClick={cancelHandler} className={Styles['new-task__button']}>Cancel</button>
+            <button onClick={cancelHandler} className={Styles['new-task__button']} type="button">Cancel</button>
             <button className={Styles['new-task__button']}>Done</button>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Styles from './Styles.module.css';
+import Styles from '../UI/Styles.module.css';
+
+import OverlayBackdrop from '../Modals/OverlayBackdrop';
 
 function Modal(props) {
   let titleInputRef = useRef();
@@ -49,11 +51,11 @@ function Modal(props) {
 
   function submitHandler(e) {
     e.preventDefault();
-    props.onSubmit(formData)
+    props.onSubmit(formData);
   }
 
   return <React.Fragment>
-    <div className={`${Styles.modal} ${props.showModal && Styles['show-modal']}`}>
+    <div className={`${Styles.modal} ${props.showModal ? Styles['show-modal'] : ''}`}>
       <div>
         <div className={Styles['modal-form']}>
           <h1>Edit</h1>
@@ -74,7 +76,7 @@ function Modal(props) {
           </form>
         </div>
       </div>
-      <div className={Styles['modal-overlay']} onClick={props.onBackdrop}></div>
+      <OverlayBackdrop onBackdropClick={props.onBackdrop} />
     </div>
   </React.Fragment>
 }

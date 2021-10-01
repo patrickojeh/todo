@@ -8,8 +8,13 @@ function TodoItem(props) {
   let [isCollapsed, setIsCollapsed] = useState(false);
   let [showMore, setShowMore] = useState(false);
 
+  const getSpecificTaskId = (event) => {
+    const todoHtmlAttr = 'data-todo-id';
+    return event.target.closest(`[${todoHtmlAttr}]`).getAttribute(todoHtmlAttr);
+  }
+
   function checkboxHandler(e) {
-    let checkboxId = e.target.id;
+    let checkboxId = getSpecificTaskId(e);
     props.onCheckboxId(checkboxId);
   }
 
@@ -23,16 +28,18 @@ function TodoItem(props) {
   }
 
   function editBtnHandler(e) {
-    e.stopPropagation();
-    props.onEdit(e.target.closest('[data-todo-id]').getAttribute('data-todo-id'))
-    setShowMore(!showMore);
+    props.onEdit(getSpecificTaskId(e));
+  }
+
+  function deleteBtnHandler(e) {
+    props.onDelete(getSpecificTaskId(e));
   }
 
   return (
     <React.Fragment>
       <a href="/#" data-todo-id={props.id} className={Styles['todo-item']} onClick={toggleCollapseHandler}>
         <div>
-          <input type="checkbox" id={props.id} onChange={checkboxHandler} checked={props.completed} />
+          <input type="checkbox" onChange={checkboxHandler} checked={props.completed} />
         </div>
         <div>
           <p>{props.title}</p>
@@ -58,7 +65,7 @@ function TodoItem(props) {
           <div className={`${Styles.more} ${showMore && Styles['show-more']}`} onClick={moreOptionHandler}>
             <ul>
               <li><button type="button" onClick={editBtnHandler}>Edit</button></li>
-              <li><button type="button">Delete</button></li>
+              <li><button type="button" onClick={deleteBtnHandler}>Delete</button></li>
             </ul>
           </div>
         </div>
