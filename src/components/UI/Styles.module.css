@@ -353,6 +353,16 @@ input[type="checkbox"]:checked:not(:disabled)::after {
   padding: 32px 32px 24px;
   animation: slideIn 0.8s cubic-bezier(1, 0, 0, 1);
 }
+.modal-form__edit {
+  max-width: 340px;
+  text-align: center;
+}
+.modal-form__edit p {
+  margin-top: 0;
+}
+.modal-form__edit div {
+  margin: 0 auto;
+}
 h1 {
   font-size: 18px;
   margin: 0 0 12px;

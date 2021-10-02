@@ -11,9 +11,7 @@ function DeleteModal(props) {
 
   return <div className={`${Styles.modal} ${props.showModal ? Styles['show-modal'] : ''}`}>
     <div>
-      <div className={Styles['modal-form']}>
-        <h1>Confirm</h1>
-        <hr/>
+      <div className={`${Styles['modal-form']} ${Styles['modal-form__edit']}`}>
         <p>Are you sure you want to delete this task?</p>
         <form onSubmit={submitHandler}>
           <div className={Styles['new-task__footer']}>
