@@ -14,7 +14,7 @@ function App() {
 
     const param = new URLSearchParams(window.location.search);
     greenbii.init(
-      {access_token: param.get("request_access_token", API_KEY)}
+      {access_token: param.get("request_access_token"), api_key: API_KEY}
     ).then(status=>{
       if(status === true) {
         console.log('patrick: ' + greenbii.getCurrentUser());
