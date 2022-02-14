@@ -17,7 +17,7 @@ function App() {
       {access_token: param.get("request_access_token"), api_key: API_KEY}
     ).then(status=>{
       if(status === true) {
-        // console.log('patrick: ' + greenbii.getCurrentUser());
+        console.log('patrick: ' + greenbii.getCurrentUser());
         // greenbii.getBusinessDetails()
       }
       else {
